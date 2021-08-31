@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}
+Registration Page
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-register" style="color:white">
+            {{ form.hidden_tag() }}
+            <img class="mb-4" src="https://image.freepik.com/free-vector/elegant-letter-m-symbol-market-place-logo-concept_17005-469.jpg" width="150" height="150" alt="">
+
+        <h1 class="h3 mb-3 font-weight-normal">
+            Please create your account
+        </h1>
+        <br>
+            {{ form.username.label() }} <!--This label will be imported from the forms.py and will appear above the form box-->
+            {{ form.username(class="form-control", placeholder="User Name") }} <!-- this code acts as an html code and will be used to
+            import a class from boostrap to make it more appealing. The placeholder will be the text present inside the form box-->
+
+            <br>
+
+            {{ form.email_address.label() }}
+            {{ form.email_address(class="form-control", placeholder="Email address") }}
+
+            <br>
+
+            {{ form.password1.label() }}
+            {{ form.password1(class="form-control", placeholder="Enter your password") }}
+
+            <br>
+
+            {{ form.password2.label() }}
+            {{ form.password2(class="form-control", placeholder="Confirm password") }}
+
+            <br>
+
+            <div class="checkbox mb-3"> <!-- This code is for a new account registration if someone is not registered-->
+               <h6>Already have an account?</h6>
+               <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Login</a>
+            </div>
+
+
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+
+        </form>
+    </div>
+</body>
+{% endblock %}
